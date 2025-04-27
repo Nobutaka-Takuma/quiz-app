@@ -41,10 +41,14 @@ if 'current_index' not in st.session_state:
     st.session_state.score = 0
     st.session_state.show_explanation = False
 
-# インデックスが問題数を超えたらリセット
+# インデックスが問題数を超えていたらリセット
 if st.session_state.current_index >= len(problems):
     st.session_state.current_index = 0
     st.session_state.score = 0
+    st.session_state.show_explanation = False
+
+# 現在の問題
+current_problem = problems[st.session_state.current_index]
 
 st.markdown(f"### 問題 {st.session_state.current_index + 1}")
 st.write(current_problem["question"])
